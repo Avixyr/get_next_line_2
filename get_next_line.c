@@ -65,7 +65,10 @@ char	*get_readline(char *buffer, int fd)
 	{
 		byte = read(fd, temp, BUFFER_SIZE);
 		if (byte == -1)
+		{
+			free(temp);
 			return (NULL);
+		}
 		temp[byte] = '\0';
 		buffer = ft_strmerge(buffer, temp);
 		if (ft_strchr(buffer, '\n'))

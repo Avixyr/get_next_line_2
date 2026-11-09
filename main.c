@@ -1,5 +1,6 @@
 #include "get_next_line.h"
 
+
 int	main(void)
 {
 	int	fd;
@@ -12,8 +13,8 @@ int	main(void)
 	s1 = get_next_line(fd);
 	printf("[%s]",s1);
 	free(s1);
-	// s1 = get_next_line(fd);
-	// printf("[%s]",s1);
-	// free(s1);
+	s1 = get_next_line(fd);
+	printf("[%s]",s1);
+	free(s1);
 	close(fd);
 }
