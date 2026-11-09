@@ -3,10 +3,17 @@
 int	main(void)
 {
 	int	fd;
+	char	*s1;
 
 	fd = open("test",O_RDONLY);
-	printf("%s",get_next_line(fd));
-	printf("%s",get_next_line(fd));
-	printf("%s",get_next_line(fd));
+	s1 = get_next_line(fd);
+	printf("[%s]",s1);
+	free(s1);
+	s1 = get_next_line(fd);
+	printf("[%s]",s1);
+	free(s1);
+	// s1 = get_next_line(fd);
+	// printf("[%s]",s1);
+	// free(s1);
 	close(fd);
 }
