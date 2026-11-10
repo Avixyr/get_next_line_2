@@ -39,6 +39,8 @@ char	*get_line(char	*buffer)
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
 	res = ft_calloc(i + 2, sizeof(char));
+	if (!res)
+		return (0);
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
 	{
@@ -46,9 +48,7 @@ char	*get_line(char	*buffer)
 		i++;
 	}
 	if (buffer[i] && buffer[i] == '\n')
-	{
 		res[i] = '\n';
-	}
 	return (res);
 }
 
@@ -57,22 +57,24 @@ char	*get_readline(char *buffer, int fd)
 	int		byte;
 	char	*temp;
 
-	if (!buffer)
-		buffer = ft_calloc(1, sizeof(char));
 	temp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!temp)
+	{
+		free(buffer);
+		return (0);
+	}
 	byte = 1;
-	while (byte > 0)
+	while (byte > 0 && !ft_strchr(buffer, '\n'))
 	{
 		byte = read(fd, temp, BUFFER_SIZE);
 		if (byte == -1)
 		{
 			free(temp);
-			return (NULL);
+			free(buffer);
+			return (0);
 		}
 		temp[byte] = '\0';
 		buffer = ft_strmerge(buffer, temp);
-		if (ft_strchr(buffer, '\n'))
-			break ;
 	}
 	free(temp);
 	return (buffer);
@@ -85,6 +87,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
+	if (!buffer)
+		buffer = ft_calloc(1, sizeof(char));
+	if (!buffer)
+		return (0);
 	buffer = get_readline(buffer, fd);
 	if (!buffer)
 		return (NULL);
