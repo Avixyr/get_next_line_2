@@ -23,12 +23,12 @@ char	*clean_buffer(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	clean = ft_strdup(ft_strchr(buffer,  '\n') + 1);
+	clean = ft_strdup(ft_strchr(buffer, '\n') + 1);
 	free(buffer);
 	return (clean);
 }
 
-char	*get_line(char	*buffer)
+char	*get_line(char *buffer)
 {
 	char	*res;
 	int		i;
@@ -64,7 +64,7 @@ char	*get_readline(char *buffer, int fd)
 		return (0);
 	}
 	byte = 1;
-	while (byte > 0 && !ft_strchr(buffer, '\n'))
+	while (buffer && byte > 0 && !ft_strchr(buffer, '\n'))
 	{
 		byte = read(fd, temp, BUFFER_SIZE);
 		if (byte == -1)
