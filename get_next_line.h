@@ -6,7 +6,7 @@
 /*   By: artbaudo <artbaudo@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 12:55:15 by artbaudo          #+#    #+#             */
-/*   Updated: 2026/11/06 16:42:58 by artbaudo         ###   ########.fr       */
+/*   Updated: 2026/11/10 11:31:34 by artbaudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # include <unistd.h>
 # include <stdint.h>
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 char	*get_next_line(int fd);
 char	*ft_strdup(const char *s);

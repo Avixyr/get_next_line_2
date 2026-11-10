@@ -6,7 +6,7 @@
 /*   By: artbaudo <artbaudo@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 14:33:10 by artbaudo          #+#    #+#             */
-/*   Updated: 2026/11/06 16:55:46 by artbaudo         ###   ########.fr       */
+/*   Updated: 2026/11/10 11:30:20 by artbaudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*clean_buffer(char *buffer)
 
 	if (!buffer)
 		return (NULL);
-	if (!ft_strchr(buffer,  '\n'))
+	if (!ft_strchr(buffer, '\n'))
 	{
 		free(buffer);
 		return (NULL);
@@ -33,8 +33,8 @@ char	*get_line(char *buffer)
 	char	*res;
 	int		i;
 
-	 if (!buffer || !*buffer)
-	 	return (NULL);
+	if (!buffer || !*buffer)
+		return (NULL);
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
