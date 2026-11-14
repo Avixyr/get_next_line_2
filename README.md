@@ -29,6 +29,10 @@ close(fd);
 
 Only handle multiple fd with bonus.
 
+### Bonus
+
+Compile with _bonus.c and bonus.h allow the use of `get_next_line` with multiple fd.
+
 ## Resources
 
 - The C standard library reference: [cppreference — C library](https://en.cppreference.com/w/c)
