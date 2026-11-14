@@ -85,7 +85,7 @@ char	*get_next_line(int fd)
 	static char	*buffer[MAX_FD];
 	char		*res;
 
-	if (fd < 0 || fd >= MAX_FD || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || fd >= MAX_FD || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (!buffer[fd])
 		buffer[fd] = ft_calloc(1, sizeof(char));

@@ -27,7 +27,7 @@ close(fd);
 
 ## Get_next_line contents
 
-Doesn't handle multiple fd.
+Only handle multiple fd with bonus.
 
 ## Resources
 
